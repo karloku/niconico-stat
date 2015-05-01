@@ -12,7 +12,7 @@ require 'mina/git'
 
 set :domain, ENV["NICONICONI_DOMAIN"]
 set :deploy_to, ENV["NICONICONI_DEPLOY_PATH"]
-set :repository, 'git://https://github.com/karloku/niconico-stat.git'
+set :repository, 'git://github.com/karloku/niconico-stat.gitgit '
 set :branch, 'master'
 
 # For system-wide RVM install.
