@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Server: Thin
 gem 'thin'
 
+# Deploy: Mina
+gem 'mina'
+
 # Model
 gem 'mongoid'
 # Paginating
