@@ -1,0 +1,87 @@
+h1 = @tag.name
+br
+p
+  span 总计视频: 
+  span = @tag.total_video_count
+  = link_to '显示', tag_videos_path(@tag)
+br
+p
+  span 平均视频长度: 
+  span = Time.at(@tag.average_length).utc.strftime("%H:%M:%S.%L") 
+p
+  span 最大视频长度: 
+  span = Time.at(@tag.max_length).utc.strftime("%H:%M:%S.%L")
+p
+  span 最小视频长度: 
+  span = Time.at(@tag.min_length).utc.strftime("%H:%M:%S.%L")
+p
+  span 视频长度标准差: 
+  span = Time.at(Math.sqrt(@tag.variance_length)).utc.strftime("%H:%M:%S.%L")
+br
+p
+  span 平均高码率文件大小: 
+  span = number_to_human_size @tag.average_size_high
+p
+  span 最大高码率文件大小: 
+  span = number_to_human_size @tag.max_size_high
+p
+  span 最小高码率文件大小: 
+  span = number_to_human_size @tag.min_size_high
+p
+  span 高码率文件大小标准差: 
+  span = number_to_human_size Math.sqrt(@tag.variance_size_high)
+br
+p
+  span 平均低码率文件大小: 
+  span = number_to_human_size @tag.average_size_low
+p
+  span 最大低码率文件大小: 
+  span = number_to_human_size @tag.max_size_low
+p
+  span 最小低码率文件大小: 
+  span = number_to_human_size @tag.min_size_low
+p
+  span 低码率文件大小标准差: 
+  span = number_to_human_size Math.sqrt(@tag.variance_size_low)
+br
+p
+  span 平均播放数: 
+  span = @tag.average_view_counter
+p
+  span 最大播放数: 
+  span = @tag.max_view_counter
+p
+  span 最小播放数: 
+  span = @tag.min_view_counter
+p
+  span 播放数标准差: 
+  span = Math.sqrt(@tag.variance_view_counter)
+br
+p
+  span 平均弹幕数: 
+  span = @tag.average_comment_counter
+p
+  span 最大弹幕数: 
+  span = @tag.max_comment_counter
+p
+  span 最小弹幕数: 
+  span = @tag.min_comment_counter
+p
+  span 弹幕数标准差: 
+  span = Math.sqrt(@tag.variance_comment_counter)
+br
+p
+  span 平均:  My List 数: 
+  span = @tag.average_mylist_counter
+p
+  span 最大:  My List 数: 
+  span = @tag.max_mylist_counter
+p
+  span 最小:  My List 数: 
+  span = @tag.min_mylist_counter
+p
+  span My:  List 数标准差: 
+  span = Math.sqrt(@tag.variance_mylist_counter)
+
+br
+= link_to '返回', tags_path

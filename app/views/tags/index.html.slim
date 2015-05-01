@@ -1,0 +1,12 @@
+h1 = "标签#{@query.present? ? ": 搜索 #{@query}" : ""}"
+
+= form_tag(searches_tags_path, method: :get) do
+  = text_field_tag(:query, nil, placeholder: "搜索")
+  = submit_tag("🔍")
+br
+ul
+  - @tags.each do |t|
+    li = link_to t.name, t 
+
+br
+= paginate @tags

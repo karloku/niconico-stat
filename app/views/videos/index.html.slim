@@ -1,0 +1,29 @@
+h1 = "视频 : #{@tag.name}"
+br
+table
+  tr
+    th 投稿时间
+    th 标题
+    th 长度
+    th 再生数
+    th 弹幕数
+    th My List数
+    th 标签
+  - Time.zone = 'Tokyo'
+  - @videos.each do |v|
+    tr
+      td = v.upload_time.to_s(:db)
+      td = link_to v.title, "http://nico.ms/#{v.video_id}"
+      td = Time.at(v.length).utc.strftime("%H:%M:%S")
+      td = v.view_counter
+      td = v.comment_counter
+      td = v.mylist_counter
+      td 
+        - v.tags.each do |tag| 
+          = link_to tag.name, tag
+          br
+
+br
+= paginate @videos
+br
+= link_to "返回 #{@tag.name}", @tag
